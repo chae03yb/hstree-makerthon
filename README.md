@@ -13,14 +13,14 @@
 
 ## 팀 소개
 
-### 팀 이름: **Dream Developers**
+### 팀 이름: **오리**
 
-| 이름           | 역할            | GitHub Profile                                        |
-|---------------|----------------|-------------------------------------------------------|
-| 채율           | 팀장            | [@chae03yb](https://github.com/chae03yb)              |
-| 염수빈         | 프론트엔드        | [@Rulrudino0911](https://github.com/Rulrudino0911)    |
-| 허건회         | 인공지능         | [@gjrjsghl](https://github.com/gjrjsghl)               |
-| 이건영         | 엔지니어         | [@CheonanTechKing](https://github.com/CheonanTechKing) |
+| 이름  | 역할    | GitHub Profile                                         |
+|-----|-------|--------------------------------------------------------|
+| 채율  | 팀장    | [@chae03yb](https://github.com/chae03yb)               |
+| 염수빈 | 프론트엔드 | [@Rulrudino0911](https://github.com/Rulrudino0911)     |
+| 허건회 | 인공지능  | [@gjrjsghl](https://github.com/gjrjsghl)               |
+| 이건영 | 엔지니어  | [@CheonanTechKing](https://github.com/CheonanTechKing) |
 
 ---
 
@@ -36,14 +36,14 @@
 
 ## 프로젝트 개요
 
-### 프로젝트 이름: **...**
+### 프로젝트 이름: **간식에 귤**
 
 ### 주요 기능:
 - 
 
 ### 기술 스택:
-- 인공지능: `OpenVINO, OpenCV`
-- 백엔드: `Flask`
+- 인공지능: `OpenVINO, OpenCV, TensorFlow`
+- 백엔드: `Flask, SQLite`
 - 프론트엔드: `Flutter`
 
 ![시스템 구조](https://via.placeholder.com/800x400)
@@ -55,37 +55,26 @@
 ### 1. 환경 설정
 1. **프로젝트 클론**
    ```bash
-   git clone https://github.com/username/project.git
-   cd project
+   git clone https://github.com/chae03yb/hstree-makerthon.git mandarin-in-snack
+   cd mandarin-in-snack
    ```
 
 2. **필요한 패키지 설치**
    ```bash
-   npm install
-   ```
-
-3. **환경 변수 설정**
-   프로젝트 루트에 `.env` 파일을 생성하고 아래 내용을 추가:
-   ```env
-   DB_URL=your_database_url
-   API_KEY=your_api_key
+   python3 setup.py
    ```
 
 ### 2. 실행
 1. **개발 서버 실행**
    ```bash
-   npm run dev
-   ```
-
-2. **프로덕션 빌드** (선택 사항)
-   ```bash
-   npm run build
-   npm start
+   cd webserver
+   python main.py
    ```
 
 ### 3. 접속
-   - 로컬에서: `http://localhost:3000`
-   - 배포된 서버: `https://your-deployed-site.com`
+   - 로컬에서: `http://localhost:8720`
+
+[//]: # (   - 배포된 서버: `https://your-deployed-site.com`)
 
 ---
 
