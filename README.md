@@ -36,13 +36,15 @@
 
 ## 프로젝트 개요
 
-### 프로젝트 이름: **Awesome Project**
+### 프로젝트 이름: **...**
 
 ### 주요 기능:
 - 
 
 ### 기술 스택:
-- ...
+- 인공지능: `OpenVINO, OpenCV`
+- 백엔드: `Flask`
+- 프론트엔드: `Flutter`
 
 ![시스템 구조](https://via.placeholder.com/800x400)
 
