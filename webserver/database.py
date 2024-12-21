@@ -1,37 +1,36 @@
+import os
 from dataclasses import dataclass
 from typing import Any, List
 
-import pymysql
+import sqlite3
 
 
 @dataclass
 class QueryResult:
     affected_rows: int
-    result: Any
+    result: list[Any]
 
 
 class DatabaseUtil:
-    def __init__(self, host: str, password: str) -> None:
-        self.db_conn = pymysql.connect(
-            host=host,
-            user="",
-            passwd=password,
-            db=""
-        )
+    def __init__(self, database: os.PathLike) -> None:
+        self.db_conn = sqlite3.connect(database)
         self.cursor = self.db_conn.cursor()
 
     def query(self, sql: str, **kwargs) -> QueryResult:
-        affected = self.cursor.execute(sql, kwargs)
+        self.cursor.execute(sql, kwargs)
         result = self.cursor.fetchall()
-        return QueryResult(affected, result)
+        return QueryResult(len(result), result)
 
     def query_many(self, sql: str, args: List[Any]) -> QueryResult:
-        affected = self.cursor.executemany(sql, args)
+        self.cursor.executemany(sql, args)
         result = self.cursor.fetchall()
-        return QueryResult(affected, result)
+        return QueryResult(len(result), result)
 
     def commit(self) -> None:
         self.db_conn.commit()
+
+    def rollback(self) -> None:
+        self.db_conn.rollback()
 
     def close(self) -> None:
         self.db_conn.close()
