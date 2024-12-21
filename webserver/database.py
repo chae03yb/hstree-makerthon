@@ -12,25 +12,25 @@ class QueryResult:
 
 
 class DatabaseUtil:
-    def __init__(self, database: os.PathLike) -> None:
-        self.db_conn = sqlite3.connect(database)
-        self.cursor = self.db_conn.cursor()
+    def __init__(self, database: os.PathLike | str) -> None:
+        self.__db_conn = sqlite3.connect(database)
+        self.__cursor = self.__db_conn.cursor()
 
-    def query(self, sql: str, **kwargs) -> QueryResult:
-        self.cursor.execute(sql, kwargs)
-        result = self.cursor.fetchall()
+    def query(self, sql: str, *args) -> QueryResult:
+        self.__cursor.execute(sql, args)
+        result = self.__cursor.fetchall()
         return QueryResult(len(result), result)
 
     def query_many(self, sql: str, args: List[Any]) -> QueryResult:
-        self.cursor.executemany(sql, args)
-        result = self.cursor.fetchall()
+        self.__cursor.executemany(sql, args)
+        result = self.__cursor.fetchall()
         return QueryResult(len(result), result)
 
     def commit(self) -> None:
-        self.db_conn.commit()
+        self.__db_conn.commit()
 
     def rollback(self) -> None:
-        self.db_conn.rollback()
+        self.__db_conn.rollback()
 
     def close(self) -> None:
-        self.db_conn.close()
+        self.__db_conn.close()
