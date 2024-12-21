@@ -39,7 +39,8 @@
 ### 프로젝트 이름: **간식에 귤**
 
 ### 주요 기능:
-- 
+- 이미지 인식을 통한 산불 조기 탐지
+- 산불 발생 위치를 지도에 표시
 
 ### 기술 스택:
 - 인공지능: `OpenVINO, OpenCV, TensorFlow`
@@ -55,8 +56,8 @@
 ### 1. 환경 설정
 1. **프로젝트 클론**
    ```bash
-   git clone https://github.com/chae03yb/hstree-makerthon.git mandarin-in-snack
-   cd mandarin-in-snack
+   git clone https://github.com/chae03yb/hstree-makerthon.git mandarin-in-snacks
+   cd mandarin-in-snacks
    ```
 
 2. **필요한 패키지 설치**
