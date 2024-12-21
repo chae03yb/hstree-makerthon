@@ -1,0 +1,6 @@
+POST /report-fire
+
+{
+    "device-id": "some-device-id",
+    "fire": true
+}
