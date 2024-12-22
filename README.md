@@ -18,8 +18,8 @@
 | 이름  | 역할    | GitHub Profile                                         |
 |-----|-------|--------------------------------------------------------|
 | 채율  | 팀장    | [@chae03yb](https://github.com/chae03yb)               |
-| 염수빈 | 프론트엔드 | [@Rulrudino0911](https://github.com/Rulrudino0911)     |
 | 허건회 | 인공지능  | [@gjrjsghl](https://github.com/gjrjsghl)               |
+| 염수빈 | 프론트엔드 | [@Rulrudino0911](https://github.com/Rulrudino0911)     |
 | 이건영 | 엔지니어  | [@CheonanTechKing](https://github.com/CheonanTechKing) |
 
 ---
@@ -44,9 +44,9 @@
 - 데이터베이스를 통한 기기 위치 관리
 
 ### 기술 스택:
-- 인공지능: `OpenVINO, OpenCV, TensorFlow`
+- 인공지능: `OpenCV, TensorFlow`
 - 백엔드: `Flask, SQLite`
-- 프론트엔드: `Flutter`
+- 프론트엔드: `HTML`
 
 ---
 
