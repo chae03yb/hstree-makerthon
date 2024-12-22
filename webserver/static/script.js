@@ -9,7 +9,7 @@ async function initMap() {
   const defaultPosition = { lat: 0, lng: 0 };
 
   map = new Map(document.getElementById("map"), {
-    zoom: 2,
+    zoom: 5,
     center: defaultPosition,
     mapId: "DEMO_MAP_ID",
   });
@@ -21,7 +21,8 @@ async function initMap() {
 // JSON 파일에서 좌표를 로드
 async function loadCoordinates() {
   try {
-    const response = await fetch("coordinates.json");
+    
+    const response = await fetch("http://127.0.0.1:8720/list-all-fires")
     const data = await response.json();
 
     // 기존 마커와 원 제거
