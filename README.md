@@ -1,6 +1,6 @@
 # AI-Makerthon 팀 프로젝트 소개
  
-![프로젝트 로고](./assets/project-logo.png)
+![프로젝트 로고](./.readme-assets/project-logo.png)
 
 ## 목차
 - [팀 소개](#팀-소개)
