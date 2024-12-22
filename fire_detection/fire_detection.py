@@ -14,11 +14,11 @@ image_generator = ImageDataGenerator(
 )
 
 
-model = keras.models.load_model('') #모델 위치
+model = keras.models.load_model('C:\\Users\\pc\\Desktop\\fire_detection\\final_model.h5') #모델 위치
 
 
-filepaths = [Path("")] #이미지 위치
-labels = list(" ") //이건 빈거 맞음
+filepaths = [Path("C:\\Users\\pc\\Desktop\\ccccc.png")] #이미지 위치
+labels = list(" ") #이건 빈거 맞음
 
 filepaths = pd.Series(filepaths, name='Filepath').astype(str)
 labels = pd.Series(labels, name='Label')
@@ -37,4 +37,6 @@ input_image = image_generator.flow_from_dataframe(
     shuffle=False
 )
 
-np.argmax(model.predict(input_image),axis=1) #산물일때 > array([0], dtype=int64) 아닐때 > array([1], dtype=int64)
+pred = np.argmax(model.predict(input_image),axis=1)[0] #산물일때 > array([0], dtype=int64) 아닐때 > array([1], dtype=int64)
+
+print(["산불","일반"][pred])
