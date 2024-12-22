@@ -37,6 +37,4 @@ input_image = image_generator.flow_from_dataframe(
     shuffle=False
 )
 
-model.predict(input_image)
-
 np.argmax(model.predict(input_image),axis=1) #산물일때 > array([0], dtype=int64) 아닐때 > array([1], dtype=int64)
