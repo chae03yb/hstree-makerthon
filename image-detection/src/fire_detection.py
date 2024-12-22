@@ -41,14 +41,19 @@ while cv2.waitKey(50) < 0:
         
         frame = keras.applications.mobilenet.preprocess_input(image_array_expanded)
 
+
+        print(f"[DEBUG]: count: {fire_detect_count}")
+        
         if image_test_fire(frame):
             fire_detect_count += 1
             if fire_detect_count >= 3 and not alarm_sent:
-                alarm.send_alarm()
+                alarm.send_alarm(DEVICE_ID)
+                alarm_sent = True
         else:
             fire_detect_count = 0
             if alarm_sent:
-                alarm.suppress_alarm()
+                alarm.suppress_alarm(DEVICE_ID)
+                alarm_sent = False
         
     except KeyboardInterrupt:
         print("KeyboardInterrupt")
