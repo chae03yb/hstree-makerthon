@@ -18,7 +18,7 @@ model = keras.models.load_model('') #모델 위치
 
 
 filepaths = [Path("")] #이미지 위치
-labels = list(" ")
+labels = list(" ") //이건 빈거 맞음
 
 filepaths = pd.Series(filepaths, name='Filepath').astype(str)
 labels = pd.Series(labels, name='Label')
