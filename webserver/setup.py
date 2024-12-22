@@ -29,6 +29,8 @@ def setup_database():
         """)
 
         connection.commit()
+    except sqlite3.OperationalError:
+        print("Table already exists, skipping...")
     except sqlite3.Error:
         print("Failed to initialize DB")
     else:

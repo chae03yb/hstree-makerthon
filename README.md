@@ -68,7 +68,7 @@
 1. **개발 서버 실행**
    ```bash
    cd webserver
-   python main.py
+   python3 main.py
    ```
 
 ### 3. 접속
