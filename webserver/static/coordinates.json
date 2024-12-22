@@ -14,9 +14,16 @@
       "event": 70
     },
     {
+      "lat": 37.655320, 
+      "lng": 126.994734,
+      "title": "test 3",
+      "value": 69,
+      "event": 82
+    },
+    {
       "lat": 37.656220, 
       "lng": 126.993751,
-      "title": "test 3",
+      "title": "test 4",
       "value": 75,
       "event": 100
     }

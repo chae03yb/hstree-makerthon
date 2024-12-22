@@ -13,6 +13,9 @@ async function initMap() {
     center: defaultPosition,
     mapId: "DEMO_MAP_ID",
   });
+
+  // JSON 파일에서 좌표를 로드하고 마커를 표시
+  await loadCoordinates();
 }
 
 // JSON 파일에서 좌표를 로드
@@ -48,7 +51,7 @@ function addMarkerAndCircle(lat, lng, title, value, eventSize) {
   let iconSize;
   if (value <= 50) {
     iconUrl = "images/marker1.png"; // 1번 마커
-    iconSize = new google.maps.Size(40, 40);
+    iconSize = new google.maps.Size(30, 30);
   } else if (value <= 70) {
     iconUrl = "images/marker2.png"; // 2번 마커
     iconSize = new google.maps.Size(40, 40);
@@ -71,7 +74,7 @@ function addMarkerAndCircle(lat, lng, title, value, eventSize) {
 
   // 이벤트 크기에 따라 원 추가
   if (value > 50) {
-    const radius = eventSize; // 반지름 설정
+    const radius = eventSize; // 반지름 설정 (eventSize 사용)
     const circle = new google.maps.Circle({
       map: map,
       center: position,
@@ -101,6 +104,4 @@ function clearOverlays() {
 // 버튼 이벤트 처리
 document.addEventListener("DOMContentLoaded", () => {
   initMap();
-
-  document.getElementById("load-markers").addEventListener("click", loadCoordinates);
 });

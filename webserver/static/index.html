@@ -1,15 +1,70 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dynamic Marker Update</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmRlvMpY_uen2gZEVdrYqUvA6U_FGb0Js&v=weekly" defer></script>
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <div id="map"></div>
-    <div id="controls">
-      <button id="load-markers">저장된 좌표로 마커 업데이트</button>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map with Info Panel</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmRlvMpY_uen2gZEVdrYqUvA6U_FGb0Js&v=weekly" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Info Panel -->
+    <div class="info-panel">
+      <div class="info-header">
+        <img src="images\fire.png" alt="Fire Image" class="info-image">
+        <h2>북한산 13번 센서</h2>
+        <p>위도: 37.656220, 경도: 126.993751</p>
+      </div>
+      <div class="info-content">
+        <div class="overview">
+          <div class="tabs">
+            <span class="tab active">개요</span>
+            <span class="tab">상세 정보</span>
+          </div>
+          <div class="actions">
+            <div class="action-item">
+              <img src="images/call.png" alt="신고" class="action-icon">
+              <span>신고</span>
+            </div>
+            <div class="action-item">
+              <img src="images/save.png" alt="저장" class="action-icon">
+              <span>저장</span>
+            </div>
+            <div class="action-item">
+              <img src="images/refresh.png" alt="새로고침" class="action-icon">
+              <span>새로고침</span>
+            </div>
+            <div class="action-item">
+              <img src="images/view.png" alt="현황 보기" class="action-icon">
+              <span>현황 보기</span>
+            </div>
+            <div class="action-item">
+              <img src="images/share.png" alt="공유" class="action-icon">
+              <span>공유</span>
+            </div>
+          </div>
+        </div>        
+        <p>경기도 고양시 덕양구 대서문길 375</p>
+        <p>🕒 00시 00분 00초 예상</p>
+        <p>⚠️ 매우 위험</p>
+        <h3>🔥 추가 화재 위치</h3>
+        <div class="extra-locations">
+          <div class="location">
+            <img src="images\fire_small1.png" alt="Fire Location 1">
+            <p>북한산 14번<br>위도: 37.656297<br>경도: 126.994502</p>
+          </div>
+          <div class="location">
+            <img src="images\fire_small2.png" alt="Fire Location 2">
+            <p>북한산 17번<br>위도: 37.655320<br>경도: 126.994734</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
+
+    <!-- Map -->
+    <div id="map"></div>
+  </div>
+</body>
 </html>
