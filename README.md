@@ -53,9 +53,11 @@
 - 인공지능: `OpenCV, TensorFlow`
 - 백엔드: `Flask, SQLite`
 - 프론트엔드: `HTML`
-- 카메라 : ~~라즈베리파이~~ `웹캠`
+- 카메라 : `웹캠`
 ---
 https://youtu.be/JenmNKuNadM?si=VM47BJv3cIsVxKvO
+
+
 ## 인공지능 학습 방법
  ![kaggle](./.readme-assets/kaggle.png) 에서 데이터셋을 가져온 후, 해당 작성자의 코드를 참고하여 학습
  
@@ -92,8 +94,11 @@ https://youtu.be/JenmNKuNadM?si=VM47BJv3cIsVxKvO
 
 
 
-![화재원인](./.readme-assets/reason.png)
--산림청
+> ![화재원인](./.readme-assets/reason.png)
+> <br/>
+> 산림청
+
+
 1. 대부분의 산불 원인은 사람
 2. 따라서 등산로 주변 위주로 설치
 
