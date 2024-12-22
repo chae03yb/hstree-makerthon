@@ -44,9 +44,9 @@
 - 데이터베이스를 통한 기기 위치 관리
 
 ### 기술 스택:
-- 인공지능: `OpenVINO, OpenCV, TensorFlow`
+- 인공지능: `OpenCV, TensorFlow`
 - 백엔드: `Flask, SQLite`
-- 프론트엔드: `Flutter`
+- 프론트엔드: `HTML`
 
 ---
 
