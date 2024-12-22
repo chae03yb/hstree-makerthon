@@ -20,7 +20,7 @@ def index():
 def report_fire():
     db = DatabaseUtil("db.sqlite3")
     try:
-        body = request.json()
+        body = request.json
 
         db.query("INSERT INTO Fires VALUES (?, FALSE, datetime(), NULL)", (body["device-id"], ))
         db.commit()
@@ -36,7 +36,7 @@ def report_fire():
 def suppress_fire():
     db = DatabaseUtil("db.sqlite3")
     try:
-        body = request.json()
+        body = request.json
 
         db.query("UPDATE Fires SET suppressed=1, suppressed_at=datetime() WHERE detector_id=?", (body["device-id"], ))
         db.commit()
@@ -58,6 +58,20 @@ def list_all_fires():
     except sqlite3.Error as E:
         print(E)
         return Response(status=500)
+    else:
+        return flask.jsonify(qr)
+    finally:
+        db.close()
+
+@app.route("/device-info", methods=["GET"])
+def device_info():
+    db = DatabaseUtil("db.sqlite3")
+    device_id = int(request.args.get("id"))
+    try:
+        qr = db.query("SELECT device_latitude, device_longitude FROM Devices WHERE device_id=?", device_id).result
+    except sqlite3.Error as E:
+        print(E)
+        return Response(status=500) 
     else:
         return flask.jsonify(qr)
     finally:

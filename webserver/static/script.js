@@ -21,17 +21,24 @@ async function initMap() {
 // JSON 파일에서 좌표를 로드
 async function loadCoordinates() {
   try {
-    
-    const response = await fetch("http://127.0.0.1:8720/list-all-fires")
+
+    const response = await fetch("http://127.0.0.1:8720/list-all-fires");
     const data = await response.json();
 
     // 기존 마커와 원 제거
     clearOverlays();
 
     // 새로운 마커와 원 추가
-    data.forEach((coord) => {
-      addMarkerAndCircle(coord.lat, coord.lng, coord.title, 20, 20);
+    data.forEach(async (fire_info) => {
+      for (let items in fire_info) {
+        let device_info = await fetch("http://127.0.0.1:8720/device-info?id=" + fire_info.detector_id);
+        let device_location = (await device_info.json())[0];
+
+        console.log(device_location)
+        addMarkerAndCircle(device_location.device_latitude, device_location.device_longitude, fire_info.started_at, 20, 20);
+      }
     });
+
 
     // 첫 번째 좌표로 지도 중심 이동
     if (data.length > 0) {
