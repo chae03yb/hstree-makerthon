@@ -12,25 +12,32 @@ class QueryResult:
 
 
 class DatabaseUtil:
+    def dict_factory(self, cursor, row):
+        d = {}
+        for idx, col in enumerate(cursor.description):
+            d[col[0]] = row[idx]
+        return d
+
     def __init__(self, database: os.PathLike | str) -> None:
-        self.__db_conn = sqlite3.connect(database)
-        self.__cursor = self.__db_conn.cursor()
+        self.db_conn = sqlite3.connect(database)
+        self.db_conn.row_factory = self.dict_factory
+        self.cursor = self.db_conn.cursor()
 
     def query(self, sql: str, *args) -> QueryResult:
-        self.__cursor.execute(sql, args)
-        result = self.__cursor.fetchall()
+        self.cursor.execute(sql, args)
+        result = self.cursor.fetchall()
         return QueryResult(len(result), result)
 
     def query_many(self, sql: str, args: List[Any]) -> QueryResult:
-        self.__cursor.executemany(sql, args)
-        result = self.__cursor.fetchall()
+        self.cursor.executemany(sql, args)
+        result = self.cursor.fetchall()
         return QueryResult(len(result), result)
-
+    
     def commit(self) -> None:
-        self.__db_conn.commit()
+        self.db_conn.commit()
 
     def rollback(self) -> None:
-        self.__db_conn.rollback()
+        self.db_conn.rollback()
 
     def close(self) -> None:
-        self.__db_conn.close()
+        self.db_conn.close()

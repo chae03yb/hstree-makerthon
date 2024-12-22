@@ -48,4 +48,20 @@ def suppress_fire():
     finally:
         db.close()
 
+
+@app.route("/list-all-fires", methods=["GET"])
+def list_all_fires():
+    db = DatabaseUtil("db.sqlite3")
+    try:
+        db.cursor.execute("SELECT detector_id, suppressed, started_at, suppressed_at FROM Fires;") 
+        qr = db.cursor.fetchall()
+    except sqlite3.Error as E:
+        print(E)
+        return Response(status=500)
+    else:
+        return flask.jsonify(qr)
+    finally:
+        db.close()
+
+
 app.run(port=8720, debug=True)
