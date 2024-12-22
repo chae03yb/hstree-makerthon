@@ -29,7 +29,7 @@ async function loadCoordinates() {
 
     // 새로운 마커와 원 추가
     data.forEach((coord) => {
-      addMarkerAndCircle(coord.lat, coord.lng, coord.title, coord.value, coord.event);
+      addMarkerAndCircle(coord.lat, coord.lng, coord.title, 20, 20);
     });
 
     // 첫 번째 좌표로 지도 중심 이동

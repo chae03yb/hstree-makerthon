@@ -6,12 +6,17 @@ from tensorflow import keras
 import keras_preprocessing
 from PIL import Image
 
+import alarm
+
+
+fire_detect_count = 0
+
 
 def image_test_fire(image: cv2.typing.MatLike) -> bool:
-    model = keras.models.load_model('model/final_model.h5')  # 모델 위치
+    model = keras.models.load_model('model/final_model.h5')
     model.predict(image)
 
-    return not bool(np.argmax(model.predict(image),axis=1)[0])  # 산불일때 > array([0], dtype=int64), 아닐 때 > array([1], dtype=int64)
+    return not bool(np.argmax(model.predict(image),axis=1)[0]) 
 
 
 webcam = cv2.VideoCapture(0)
@@ -19,7 +24,7 @@ webcam.set(cv2.CAP_PROP_FRAME_WIDTH, 224)
 webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, 224)
 webcam.set(cv2.CAP_PROP_FPS, 2)
 
-while cv2.waitKey(500) < 0:
+while cv2.waitKey(50) < 0:
     try:
         ret, frame = webcam.read()
         
@@ -34,7 +39,14 @@ while cv2.waitKey(500) < 0:
         
         frame = keras.applications.mobilenet.preprocess_input(image_array_expanded)
 
-        print("fire" if image_test_fire(frame) else "not fire")
+        if image_test_fire(frame):
+            fire_detect_count += 1
+            if fire_detect_count >= 3:
+                alarm.send_alarm()
+        else:
+            fire_detect_count = 0
+            alarm.suppress_alarm()
+        
     except KeyboardInterrupt:
         print("KeyboardInterrupt")
         break

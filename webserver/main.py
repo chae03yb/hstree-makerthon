@@ -26,13 +26,9 @@ def report_fire():
         db.commit()
     except sqlite3.Error as E:
         print(E)
-        return Response(
-            status=500
-        )
+        return Response(status=500)
     else:
-        return Response(
-            status=201
-        )
+        return Response(status=201)
     finally:
         db.close()
 
@@ -46,13 +42,9 @@ def suppress_fire():
         db.commit()
     except sqlite3.Error as E:
         print(E)
-        return Response(
-            status=500
-        )
+        return Response(status=500)
     else:
-        return Response(
-            status=200
-        )
+        return Response(status=200)
     finally:
         db.close()
 
