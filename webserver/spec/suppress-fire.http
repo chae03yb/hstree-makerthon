@@ -1,0 +1,5 @@
+POST /suppress-fire
+
+{
+    "device-id": "some-device-id"
+}

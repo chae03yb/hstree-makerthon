@@ -17,7 +17,7 @@ def report_fire():
     try:
         body = request.json()
 
-        db.query("INSERT INTO Fires VALUES (?, FALSE, datetime(), NULL)", body["device-id"])
+        db.query("INSERT INTO Fires VALUES (?, FALSE, datetime(), NULL)", (body["device-id"], ))
         db.commit()
     except sqlite3.Error as E:
         print(E)
@@ -37,7 +37,7 @@ def suppress_fire():
     try:
         body = request.json()
 
-        db.query("UPDATE Fires SET suppressed=1, suppressed_at=datetime() WHERE detector_id=?", body["device-id"])
+        db.query("UPDATE Fires SET suppressed=1, suppressed_at=datetime() WHERE detector_id=?", (body["device-id"], ))
         db.commit()
     except sqlite3.Error as E:
         print(E)
