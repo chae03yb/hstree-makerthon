@@ -20,45 +20,50 @@
       <div class="info-content">
         <div class="overview">
           <div class="tabs">
-            <span class="tab active">개요</span>
-            <span class="tab">상세 정보</span>
+            <span class="tab-button" onclick="tab1_Clicked()">개요</span>
+            <span class="tab-button" onclick="tab2_Clicked()">상세 정보</span>
           </div>
-          <div class="actions">
-            <div class="action-item">
-              <img src="{{ url_for('static', filename='images/call.png') }}" alt="신고" class="action-icon">
-              <span>신고</span>
+          <selection id = "tab-id-1" hidden>
+            <div class="actions">
+              <div class="action-item">
+                <img src="{{ url_for('static', filename='images/call.png') }}" alt="신고" class="action-icon">
+                <span>신고</span>
+              </div>
+              <div class="action-item">
+                <img src="{{ url_for('static', filename='images/save.png') }}" alt="저장" class="action-icon">
+                <span>저장</span>
+              </div>
+              <div class="action-item">
+                <img src="{{ url_for('static', filename='images/refresh.png') }}" alt="새로고침" class="action-icon">
+                <span>새로고침</span>
+              </div>
+              <div class="action-item">
+                <img src="{{ url_for('static', filename='images/view.png') }}" alt="현황 보기" class="action-icon">
+                <span>현황 보기</span>
+              </div>
+              <div class="action-item">
+                <img src="{{ url_for('static', filename='images/share.png') }}" alt="공유" class="action-icon">
+                <span>공유</span>
+              </div>
             </div>
-            <div class="action-item">
-              <img src="{{ url_for('static', filename='images/save.png') }}" alt="저장" class="action-icon">
-              <span>저장</span>
+          </selection>
+          <selection id = "tab-id-2">
+            <div class="info-section">
+              <div class="info-item">
+                <img src="{{ url_for('static', filename='images/location.png') }}" alt="위치 아이콘" class="info-icon">
+                <span>경기도 고양시 덕양구 대서문길 375</span>
+              </div>
+              <div class="info-item">
+                <img src="{{ url_for('static', filename='images/time.png') }}" alt="시간 아이콘" class="info-icon">
+                <span>00시 00분 00초 예상</span>
+              </div>
+              <div class="info-item">
+                <img src="{{ url_for('static', filename='images/warning.png') }}" alt="경고 아이콘" class="info-icon">
+                <span>매우 위험</span>
+              </div>
             </div>
-            <div class="action-item">
-              <img src="{{ url_for('static', filename='images/refresh.png') }}" alt="새로고침" class="action-icon">
-              <span>새로고침</span>
-            </div>
-            <div class="action-item">
-              <img src="{{ url_for('static', filename='images/view.png') }}" alt="현황 보기" class="action-icon">
-              <span>현황 보기</span>
-            </div>
-            <div class="action-item">
-              <img src="{{ url_for('static', filename='images/share.png') }}" alt="공유" class="action-icon">
-              <span>공유</span>
-            </div>
-          </div>
-          <div class="info-section">
-            <div class="info-item">
-              <img src="{{ url_for('static', filename='images/location.png') }}" alt="위치 아이콘" class="info-icon">
-              <span>경기도 고양시 덕양구 대서문길 375</span>
-            </div>
-            <div class="info-item">
-              <img src="{{ url_for('static', filename='images/time.png') }}" alt="시간 아이콘" class="info-icon">
-              <span>00시 00분 00초 예상</span>
-            </div>
-            <div class="info-item">
-              <img src="{{ url_for('static', filename='images/warning.png') }}" alt="경고 아이콘" class="info-icon">
-              <span>매우 위험</span>
-            </div>
-          </div>
+          </selection>
+          
         </div>        
         <h3>🔥 추가 화재 위치</h3>
         <div class="extra-locations">
@@ -78,4 +83,19 @@
     <div id="map"></div>
   </div>
 </body>
+<script>
+
+  function tab1_Clicked() {
+    console.log("11");
+    document.getElementById("tab-id-2").setAttribute("hidden",true);
+    document.getElementById("tab-id-1").removeAttribute("hidden");
+  }
+
+  
+  function tab2_Clicked() {
+    console.log("22");
+    document.getElementById("tab-id-1").setAttribute("hidden",true);
+    document.getElementById("tab-id-2").removeAttribute("hidden");
+  }
+</script>
 </html>
