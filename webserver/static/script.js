@@ -51,7 +51,7 @@ function addMarkerAndCircle(lat, lng, title, value, eventSize) {
   let iconSize;
   if (value <= 50) {
     iconUrl = "images/marker1.png"; // 1번 마커
-    iconSize = new google.maps.Size(40, 40);
+    iconSize = new google.maps.Size(30, 30);
   } else if (value <= 70) {
     iconUrl = "images/marker2.png"; // 2번 마커
     iconSize = new google.maps.Size(40, 40);

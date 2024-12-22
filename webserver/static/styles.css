@@ -95,3 +95,48 @@ body, html {
   flex-grow: 1;
   height: 100%;
 }
+
+/* Overview Section */
+.overview {
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  background-color: #fff; /* 옆 창 배경 흰색 유지 */
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.tab {
+  font-size: 16px;
+  padding: 10px 20px;
+  color: #999;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #f4511e;
+  border-bottom: 2px solid #f4511e;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-item {
+  text-align: center;
+  font-size: 14px;
+  color: #f4511e;
+  cursor: pointer;
+}
+
+.action-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 5px;
+  display: block;
+}
