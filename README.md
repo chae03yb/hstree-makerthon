@@ -55,7 +55,7 @@
 - 프론트엔드: `HTML`
 - 하드웨어 : `라즈베리파이`
 ---
-
+https://youtu.be/JenmNKuNadM?si=QbxekuKTYk9X6ty5
 ## 인공지능 학습 방법
  ![kaggle](./.readme-assets/kaggle.png) 에서 데이터셋을 가져온 후, 해당 작성자의 코드를 참고하여 학습
  
@@ -88,6 +88,8 @@
 ---
 
 ## 설치 위치
+
+
 
 ![화재원인](./.readme-assets/reason.png)
 -산림청
