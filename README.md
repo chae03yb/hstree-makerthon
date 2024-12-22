@@ -45,7 +45,7 @@
 
 ### 주요 기능:
 
-[이미지](./.readme-assets/dohung.png)
+![이미지](./.readme-assets/dohung.png)
 
 - 라즈베리파이 카메라를 이용해 이미지 인식
 - 이미지 인식을 통한 AI의 산불 조기 자동 탐지
