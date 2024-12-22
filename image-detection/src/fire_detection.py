@@ -10,6 +10,8 @@ import alarm
 
 
 fire_detect_count = 0
+alarm_sent = False
+DEVICE_ID = 1
 
 
 def image_test_fire(image: cv2.typing.MatLike) -> bool:
@@ -41,11 +43,12 @@ while cv2.waitKey(50) < 0:
 
         if image_test_fire(frame):
             fire_detect_count += 1
-            if fire_detect_count >= 3:
+            if fire_detect_count >= 3 and not alarm_sent:
                 alarm.send_alarm()
         else:
             fire_detect_count = 0
-            alarm.suppress_alarm()
+            if alarm_sent:
+                alarm.suppress_alarm()
         
     except KeyboardInterrupt:
         print("KeyboardInterrupt")
