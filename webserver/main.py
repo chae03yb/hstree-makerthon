@@ -1,14 +1,19 @@
 import sqlite3
 
+import flask
 from flask import Flask, request, Response
 from database import DatabaseUtil
 
-app = Flask(__name__)
+
+app = Flask(__name__, 
+            static_folder="static/",
+            static_url_path="",
+            template_folder="templates/")
 
 
 @app.route("/", methods=["GET"])
 def index():
-    pass
+    return flask.render_template("index.html")
 
 
 @app.route("/report-fire", methods=["POST"])
@@ -50,3 +55,5 @@ def suppress_fire():
         )
     finally:
         db.close()
+
+app.run(port=8720, debug=True)

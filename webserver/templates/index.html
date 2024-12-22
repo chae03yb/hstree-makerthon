@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Map with Info Panel</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmRlvMpY_uen2gZEVdrYqUvA6U_FGb0Js&v=weekly" defer></script>
-  <script src="script.js" defer></script>
+  <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
 </head>
 <body>
   <div class="container">
     <!-- Info Panel -->
     <div class="info-panel">
       <div class="info-header">
-        <img src="images\fire.png" alt="Fire Image" class="info-image">
+        <img src="{{ url_for('static', filename='images/fire.png') }}" alt="Fire Image" class="info-image">
         <h2>북한산 13번 센서</h2>
         <p>위도: 37.656220, 경도: 126.993751</p>
       </div>
@@ -25,37 +25,37 @@
           </div>
           <div class="actions">
             <div class="action-item">
-              <img src="images/call.png" alt="신고" class="action-icon">
+              <img src="{{ url_for('static', filename='images/call.png') }}" alt="신고" class="action-icon">
               <span>신고</span>
             </div>
             <div class="action-item">
-              <img src="images/save.png" alt="저장" class="action-icon">
+              <img src="{{ url_for('static', filename='images/save.png') }}" alt="저장" class="action-icon">
               <span>저장</span>
             </div>
             <div class="action-item">
-              <img src="images/refresh.png" alt="새로고침" class="action-icon">
+              <img src="{{ url_for('static', filename='images/refresh.png') }}" alt="새로고침" class="action-icon">
               <span>새로고침</span>
             </div>
             <div class="action-item">
-              <img src="images/view.png" alt="현황 보기" class="action-icon">
+              <img src="{{ url_for('static', filename='images/view.png') }}" alt="현황 보기" class="action-icon">
               <span>현황 보기</span>
             </div>
             <div class="action-item">
-              <img src="images/share.png" alt="공유" class="action-icon">
+              <img src="{{ url_for('static', filename='images/share.png') }}" alt="공유" class="action-icon">
               <span>공유</span>
             </div>
           </div>
           <div class="info-section">
             <div class="info-item">
-              <img src="images/location.png" alt="위치 아이콘" class="info-icon">
+              <img src="{{ url_for('static', filename='images/location.png') }}" alt="위치 아이콘" class="info-icon">
               <span>경기도 고양시 덕양구 대서문길 375</span>
             </div>
             <div class="info-item">
-              <img src="images/time.png" alt="시간 아이콘" class="info-icon">
+              <img src="{{ url_for('static', filename='images/time.png') }}" alt="시간 아이콘" class="info-icon">
               <span>00시 00분 00초 예상</span>
             </div>
             <div class="info-item">
-              <img src="images/warning.png" alt="경고 아이콘" class="info-icon">
+              <img src="{{ url_for('static', filename='images/warning.png') }}" alt="경고 아이콘" class="info-icon">
               <span>매우 위험</span>
             </div>
           </div>
@@ -63,14 +63,12 @@
         <h3>🔥 추가 화재 위치</h3>
         <div class="extra-locations">
           <div class="location">
-            <img src="images\fire_small1.png" alt="Fire Location 1">
-            <h4>북한산 14번</h4>
-            <p>위도: 37.656297 경도: 126.994502</p>
+            <img src="{{ url_for('static', filename='images/fire_small1.png') }}" alt="Fire Location 1">
+            <p>북한산 14번<br>위도: 37.656297<br>경도: 126.994502</p>
           </div>
           <div class="location">
-            <img src="images\fire_small2.png" alt="Fire Location 2">
-            <h4>북한산 17번</h4>
-            <p>위도: 37.655320, 경도: 126.994734</p>
+            <img src="{{ url_for('static', filename='images/fire_small2.png') }}" alt="Fire Location 2">
+            <p>북한산 17번<br>위도: 37.655320<br>경도: 126.994734</p>
           </div>
         </div>
       </div>

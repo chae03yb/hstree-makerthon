@@ -1,48 +1,43 @@
 import cv2
+import keras_preprocessing.image
 import numpy as np
-import pandas as pd
-import tensorflow as tf
 
 from tensorflow import keras
-from tensorflow.keras import layers,models
-from keras_preprocessing.image import ImageDataGenerator
-
-from pathlib import Path
-
-webcam = cv2.VideoCapture(1)
+import keras_preprocessing
+from PIL import Image
 
 
-
-
-
-def classify_image():
-    image_generator = ImageDataGenerator(
-        preprocessing_function=tf.keras.applications.mobilenet_v2.preprocess_input
-    )
-
-
+def image_test_fire(image: cv2.typing.MatLike) -> bool:
     model = keras.models.load_model('model/final_model.h5')  # 모델 위치
+    model.predict(image)
 
-    filepaths = [Path("")]  # 이미지 위치
-    labels = [" "]
-
-    filepaths = pd.Series(filepaths, name='Filepath').astype(str)
-    labels = pd.Series(labels, name='Label')
-
-    image_df = pd.concat([filepaths, labels], axis=1)
+    return not bool(np.argmax(model.predict(image),axis=1)[0])  # 산불일때 > array([0], dtype=int64), 아닐 때 > array([1], dtype=int64)
 
 
-    input_image = image_generator.flow_from_dataframe(
-        dataframe=image_df,
-        x_col='Filepath',
-        y_col='Label',
-        target_size=(224, 224),
-        color_mode='rgb',
-        class_mode='categorical',
-        batch_size=32,
-        shuffle=False
-    )
+webcam = cv2.VideoCapture(0)
+webcam.set(cv2.CAP_PROP_FRAME_WIDTH, 224)
+webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, 224)
+webcam.set(cv2.CAP_PROP_FPS, 2)
 
-    model.predict(input_image)
+while cv2.waitKey(500) < 0:
+    try:
+        ret, frame = webcam.read()
+        
+        # cv2.imshow("test", frame)
+        
+        cvt_image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        im_pil = Image.fromarray(cvt_image)
 
-    np.argmax(model.predict(input_image),axis=1) #산물일때 > array([0], dtype=int64) 아닐때 > array([1], dtype=int64)
+        im_resized = im_pil.resize((224, 224))
+        img_array = keras_preprocessing.image.img_to_array(im_resized)
+        image_array_expanded = np.expand_dims(img_array, axis=0)
+        
+        frame = keras.applications.mobilenet.preprocess_input(image_array_expanded)
+
+        print("fire" if image_test_fire(frame) else "not fire")
+    except KeyboardInterrupt:
+        print("KeyboardInterrupt")
+        break
+
+webcam.release()
+# cv2.destroyAllWindows()
