@@ -44,20 +44,7 @@
 
 ### 주요 기능:
 - 라즈베리파이 카메라를 이용해 이미지 인식
-- 이미지 인식을 통한 산불 조기 자동 탐지
-- 산불 발생 위치를 지도에 표시
-- 데이터베이스를 통한 기기 위치 관리
-
-### 기술 스택:
-- 인공지능: `OpenCV, TensorFlow`
-- 백엔드: `Flask, SQLite`
-- 프론트엔드: `HTML`
-- 하드웨어 : `라즈베리파이`
----
-
-## 인공지능 학습 방법
- ![kaggle](./.readme-assets/kaggle.png) 에서 데이터셋을 가져온 후, 해당 작성자의 코드를 참고하여 학습
- [링크](image-detection/model/final_model.h5)
+- 이미지 인식을 통한 산불 조기 자동 일](image-detection/model/final_model.h5)
 
 ## 실행 방법
 
