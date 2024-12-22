@@ -57,7 +57,8 @@
 
 ## 인공지능 학습 방법
  ![kaggle](./.readme-assets/kaggle.png) 에서 데이터셋을 가져온 후, 해당 작성자의 코드를 참고하여 학습
- [링크](image-detection/model/final_model.h5)
+ 
+ [모델 파일](image-detection/model/final_model.h5)
 
 ## 실행 방법
 
